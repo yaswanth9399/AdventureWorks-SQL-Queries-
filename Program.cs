@@ -1,45 +1,44 @@
-﻿using Strings;
-
-class Program
+﻿class Program
 {
     static void Main()
     {
         while (true)
         {
-            Console.WriteLine("Select a task to run (1-4) or enter 0 to exit:");
-            Console.WriteLine("1. Reverse String");
-            Console.WriteLine("2. Reverse Words in a Sentence");
-            Console.WriteLine("3. Extract Palindromes");
-            Console.WriteLine("4. Parse a URL");
+            Console.WriteLine("\nChoose an option:");
+            Console.WriteLine("1 - Print a Pyramid");
+            Console.WriteLine("2 - Guess the Number");
+            Console.WriteLine("3 - Age Calculator");
+            Console.WriteLine("4 - Time-Based Greeting");
+            Console.WriteLine("5 - Counting Up to 24");
+            Console.WriteLine("6 - Exit");
             Console.Write("Enter your choice: ");
 
-            if (!int.TryParse(Console.ReadLine(), out int choice) || choice == 0)
-            {
-                Console.WriteLine("Exiting program...");
-                break;
-            }
+            string choice = Console.ReadLine();
 
             switch (choice)
             {
-                case 1:
-                    ReverseString.Method1();
-                    ReverseString.Method2();
+                case "1":
+                    PyramidPattern.Run();
                     break;
-                case 2:
-                    ReverseWords.ReverseSentence();
+                case "2":
+                    GuessTheNumber.Run();
                     break;
-                case 3:
-                    PalindromeExtractor.ExtractPalindromes();
+                case "3":
+                    AgeCalculator.Run();
                     break;
-                case 4:
-                    URLParser.ParseURL();
+                case "4":
+                    TimeBasedGreeting.Run();
                     break;
+                case "5":
+                    IncrementalCounter.Run();
+                    break;
+                case "6":
+                    Console.WriteLine("Exiting program...");
+                    return;
                 default:
-                    Console.WriteLine("Invalid choice! Please select a valid option.");
+                    Console.WriteLine("Invalid choice! Please enter a valid option.");
                     break;
             }
-
-            Console.WriteLine();
         }
     }
 }
